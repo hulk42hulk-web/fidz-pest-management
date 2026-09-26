@@ -1,14 +1,12 @@
 import React from "react";
 import { cn } from "@/lib/utils";
-import { Badge } from "./Badge";
 
 interface SectionHeadingProps {
   eyebrow?: string;
-  eyebrowVariant?: "green" | "navy" | "gold" | "red" | "glass" | "neutral";
+  eyebrowVariant?: "green" | "blue" | "red";
   title: string;
   subtitle?: string;
   align?: "left" | "center" | "right";
-  theme?: "light" | "dark";
   className?: string;
 }
 
@@ -20,28 +18,35 @@ export function SectionHeading({
   align = "center",
   className,
 }: SectionHeadingProps) {
-  return (
-    <div
-      className={cn(
-        "flex flex-col gap-3 sm:gap-4 max-w-3xl",
-        align === "center" && "mx-auto text-center items-center",
-        align === "left" && "text-left items-start",
-        align === "right" && "ml-auto text-right items-end",
-        className
-      )}
-    >
-      {eyebrow && (
-        <Badge variant={eyebrowVariant} size="md">
-          {eyebrow}
-        </Badge>
-      )}
+  const eyebrowStyles = {
+    green: "bg-[#DDF7EA] border-[#0FA968]/30 text-[#087A4A]",
+    blue: "bg-[#EEF8FF] border-blue-200/60 text-blue-700",
+    red: "bg-[#FEECEF] border-[#E5394F]/30 text-[#E5394F]",
+  };
 
-      <h2 className="text-[28px] sm:text-[36px] lg:text-[44px] font-extrabold tracking-tight leading-[1.12] text-[#0B2345] font-heading">
+  const alignStyles = {
+    left: "text-left items-start",
+    center: "text-center items-center mx-auto",
+    right: "text-right items-end ml-auto",
+  };
+
+  return (
+    <div className={cn("flex flex-col max-w-3xl", alignStyles[align], className)}>
+      {eyebrow && (
+        <span
+          className={cn(
+            "inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider border mb-3 shadow-2xs",
+            eyebrowStyles[eyebrowVariant]
+          )}
+        >
+          {eyebrow}
+        </span>
+      )}
+      <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-[#09264A] tracking-tight leading-[1.12] font-heading">
         {title}
       </h2>
-
       {subtitle && (
-        <p className="text-base sm:text-lg text-[#5A6E85] leading-relaxed font-normal">
+        <p className="mt-3.5 text-sm sm:text-base lg:text-[17px] text-slate-600 leading-relaxed font-normal">
           {subtitle}
         </p>
       )}

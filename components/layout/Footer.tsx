@@ -8,189 +8,193 @@ import { Container } from "@/components/ui/Container";
 
 export function Footer() {
   return (
-    <footer className="bg-[#F1F7FA] border-t border-slate-200/90 text-[#5A6E85] pt-16 sm:pt-20 pb-28 lg:pb-16 relative overflow-hidden">
-      {/* Subtle background ambient mesh */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#16A765]/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-10 w-96 h-96 bg-[#0B2345]/3 rounded-full blur-3xl pointer-events-none" />
+    <footer className="relative overflow-hidden text-slate-300 pt-16 sm:pt-20 pb-28 lg:pb-16 bg-[#09264A]">
+      {/* Layer 1: Ambient Emerald & Cyan Glow Blobs */}
+      <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-[#0FA968]/15 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-[550px] h-[550px] bg-[#38BDF8]/12 rounded-full blur-[130px] pointer-events-none" />
 
       <Container className="relative z-10">
-        {/* Top Emergency CTA Strip inside Footer */}
-        <div className="glass-card-navy rounded-[24px] p-6 sm:p-8 mb-14 shadow-sm flex flex-col lg:flex-row items-center justify-between gap-6 border border-slate-200/80">
+        {/* Top Emergency Glass Banner inside Footer */}
+        <div className="bg-white/10 backdrop-blur-2xl border border-white/15 rounded-[28px] p-6 sm:p-8 mb-14 shadow-lg flex flex-col lg:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4 text-center sm:text-left">
-            <div className="w-12 h-12 rounded-2xl bg-[#FEECEF] border border-[#E5394F]/30 flex items-center justify-center shrink-0">
+            <div className="w-12 h-12 rounded-2xl bg-[#E5394F]/20 border border-[#E5394F]/40 flex items-center justify-center shrink-0">
               <Flame className="w-6 h-6 text-[#E5394F] animate-pulse" />
             </div>
             <div>
-              <h3 className="text-xl sm:text-2xl font-extrabold text-[#0B2345] font-heading">
+              <h3 className="text-xl sm:text-2xl font-extrabold text-white font-heading">
                 Facing an Urgent Pest Emergency in Singapore?
               </h3>
-              <p className="text-[#5A6E85] text-sm mt-0.5">
-                Our licensed vector control technicians are on standby 24 hours, 7 days a week.
+              <p className="text-slate-300 text-xs sm:text-sm mt-0.5">
+                Our licensed vector control technicians are on active standby 24 hours, 7 days a week.
               </p>
             </div>
           </div>
+
           <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto justify-center">
             <a
               href={COMPANY_INFO.phoneTel}
-              className="flex items-center gap-2 px-5 py-3 rounded-xl bg-white hover:bg-slate-50 text-[#0B2345] font-extrabold text-sm transition-all shadow-xs border border-slate-200 active:scale-95"
+              className="flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-slate-100 text-[#09264A] font-extrabold text-sm transition-all shadow-sm"
             >
-              <Phone className="w-4 h-4 text-[#16A765]" />
-              <span>Call 67146711</span>
+              <Phone className="w-4 h-4 text-[#0FA968]" />
+              <span>Call: {COMPANY_INFO.phone}</span>
             </a>
             <a
               href={COMPANY_INFO.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#16A765] hover:bg-[#087F4E] text-white font-extrabold text-sm transition-all shadow-md shadow-[#16A765]/20 active:scale-95"
+              className="flex items-center gap-2 px-6 py-3 rounded-full bg-[#0FA968] hover:bg-[#087A4A] text-white font-extrabold text-sm transition-all shadow-md shadow-[#0FA968]/25"
             >
-              <MessageCircle className="w-4 h-4 fill-white" />
-              <span>WhatsApp Us</span>
+              <MessageCircle className="w-4 h-4" />
+              <span>WhatsApp Emergency</span>
             </a>
           </div>
         </div>
 
-        {/* 4-Column Main Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-14 border-b border-slate-200">
+        {/* 5-Column Grid with Glass Card Styling */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-14 border-b border-white/10">
           {/* Col 1: Brand & NEA */}
           <div className="lg:col-span-2 space-y-4">
             <Logo showTagline={true} />
-            <p className="text-[#5A6E85] text-sm sm:text-base leading-relaxed max-w-sm mt-3">
-              Fidz Pest Management is a premier Singapore vector control operator dedicated to precision, safety, and rapid 24/7 pest eradication for residential and commercial premises.
+            <p className="text-slate-300 text-sm leading-relaxed max-w-sm mt-3">
+              Fidz Pest Management is an officially registered Singapore Vector Control Operator dedicated to precision, non-toxic options, and rapid 24/7 pest eradication for residential and commercial premises.
             </p>
 
-            <div className="pt-2 space-y-2">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#E8F8EF] border border-[#16A765]/20 text-xs text-[#087F4E] font-bold">
-                <ShieldCheck className="w-4 h-4 text-[#16A765]" />
-                <span>NEA Registration: {COMPANY_INFO.neaReg}</span>
-              </div>
-              <p className="text-xs text-[#5A6E85]">
-                Official NEA Registered Vector Control Operator
-              </p>
+            <div className="pt-2 flex flex-col gap-2 text-xs text-slate-300">
+              <span className="flex items-center gap-2 font-semibold text-[#DDF7EA]">
+                <ShieldCheck className="w-4 h-4 text-[#0FA968]" />
+                NEA Reg. {COMPANY_INFO.neaReg}
+              </span>
+              <span className="flex items-center gap-2 font-medium">
+                <MapPin className="w-4 h-4 text-[#0FA968]" />
+                {COMPANY_INFO.address.fullAddress}
+              </span>
+              <span className="flex items-center gap-2 font-medium">
+                <Clock className="w-4 h-4 text-[#0FA968]" />
+                24/7 Emergency Dispatch • Daily Operations
+              </span>
             </div>
           </div>
 
           {/* Col 2: Services */}
-          <div>
-            <h4 className="text-[#0B2345] text-sm font-extrabold uppercase tracking-wider mb-4 font-heading">
-              Pest Services
+          <div className="space-y-3">
+            <h4 className="text-white text-xs font-extrabold uppercase tracking-wider font-heading">
+              Specialized Services
             </h4>
-            <ul className="space-y-2.5 text-sm">
-              {SERVICES.map((s) => (
-                <li key={s.slug}>
+            <ul className="space-y-2 text-xs sm:text-sm">
+              {SERVICES.slice(0, 6).map((service) => (
+                <li key={service.slug}>
                   <Link
-                    href={`/services/${s.slug}`}
-                    className="text-[#5A6E85] hover:text-[#16A765] transition-colors flex items-center gap-1.5 group font-medium"
+                    href={`/services/${service.slug}`}
+                    className="text-slate-300 hover:text-[#0FA968] transition-colors"
                   >
-                    <ArrowRight className="w-3 h-3 text-[#16A765] opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <span>{s.shortTitle}</span>
+                    {service.shortTitle}
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link
-                  href="/services"
-                  className="text-xs text-[#16A765] font-bold hover:underline inline-block pt-1"
-                >
-                  View All Services →
-                </Link>
-              </li>
             </ul>
           </div>
 
-          {/* Col 3: Industries & Coverage */}
-          <div>
-            <h4 className="text-[#0B2345] text-sm font-extrabold uppercase tracking-wider mb-4 font-heading">
-              Industries & Areas
+          {/* Col 3: Sectors & Coverage */}
+          <div className="space-y-3">
+            <h4 className="text-white text-xs font-extrabold uppercase tracking-wider font-heading">
+              Sectors & Areas
             </h4>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-2 text-xs sm:text-sm">
               <li>
-                <Link href="/industries/residential" className="text-[#5A6E85] hover:text-[#16A765] transition-colors font-medium">
-                  Residential (HDB / Condo)
+                <Link href="/industries/food-beverage" className="text-slate-300 hover:text-[#0FA968] transition-colors">
+                  F&B & Restaurants
                 </Link>
               </li>
               <li>
-                <Link href="/industries/commercial" className="text-[#5A6E85] hover:text-[#16A765] transition-colors font-medium">
-                  Commercial & Corporate
-                </Link>
-              </li>
-              <li>
-                <Link href="/industries/food-beverage" className="text-[#5A6E85] hover:text-[#16A765] transition-colors font-medium">
-                  Food & Beverage (F&B)
-                </Link>
-              </li>
-              <li>
-                <Link href="/industries/education" className="text-[#5A6E85] hover:text-[#16A765] transition-colors font-medium">
-                  Childcare & Education
-                </Link>
-              </li>
-              <li>
-                <Link href="/industries/healthcare" className="text-[#5A6E85] hover:text-[#16A765] transition-colors font-medium">
+                <Link href="/industries/healthcare" className="text-slate-300 hover:text-[#0FA968] transition-colors">
                   Healthcare & Clinics
                 </Link>
               </li>
               <li>
-                <Link href="/industries/engineering" className="text-[#5A6E85] hover:text-[#16A765] transition-colors font-medium">
-                  Engineering & Industrial
+                <Link href="/industries/education" className="text-slate-300 hover:text-[#0FA968] transition-colors">
+                  Education & Preschools
                 </Link>
               </li>
               <li>
-                <Link href="/areas-we-serve" className="text-xs text-[#16A765] font-bold hover:underline inline-block pt-1">
-                  Singapore Coverage Map →
+                <Link href="/industries/commercial" className="text-slate-300 hover:text-[#0FA968] transition-colors">
+                  Commercial Offices
+                </Link>
+              </li>
+              <li>
+                <Link href="/areas-we-serve" className="text-slate-300 hover:text-[#0FA968] transition-colors">
+                  All Singapore Districts
+                </Link>
+              </li>
+              <li>
+                <Link href="/why-fidz" className="text-slate-300 hover:text-[#0FA968] transition-colors">
+                  Why Choose Fidz
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 4: Contact & Office */}
-          <div>
-            <h4 className="text-[#0B2345] text-sm font-extrabold uppercase tracking-wider mb-4 font-heading">
-              Fidz Headquarters
+          {/* Col 4: Quick Links & Contact */}
+          <div className="space-y-3">
+            <h4 className="text-white text-xs font-extrabold uppercase tracking-wider font-heading">
+              Contact & Booking
             </h4>
-            <ul className="space-y-3.5 text-sm text-[#102A43]">
-              <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#16A765] shrink-0 mt-0.5" />
-                <span className="text-[#5A6E85]">
-                  {COMPANY_INFO.address.street}, {COMPANY_INFO.address.building}, {COMPANY_INFO.address.country} {COMPANY_INFO.address.postalCode}
-                </span>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#16A765] shrink-0" />
-                <a href={COMPANY_INFO.phoneTel} className="hover:text-[#16A765] font-bold transition-colors">
-                  {COMPANY_INFO.phone} (24/7 Hotline)
+            <ul className="space-y-2.5 text-xs sm:text-sm">
+              <li>
+                <a
+                  href={COMPANY_INFO.phoneTel}
+                  className="text-white font-bold hover:text-[#0FA968] flex items-center gap-1.5 transition-colors"
+                >
+                  <Phone className="w-3.5 h-3.5 text-[#0FA968]" />
+                  <span>{COMPANY_INFO.phone}</span>
                 </a>
               </li>
-              <li className="flex items-center gap-2.5">
-                <MessageCircle className="w-4 h-4 text-[#16A765] shrink-0" />
-                <a href={COMPANY_INFO.whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[#16A765] font-bold transition-colors">
-                  {COMPANY_INFO.whatsapp} (WhatsApp)
+              <li>
+                <a
+                  href={COMPANY_INFO.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white font-bold hover:text-[#0FA968] flex items-center gap-1.5 transition-colors"
+                >
+                  <MessageCircle className="w-3.5 h-3.5 text-[#0FA968]" />
+                  <span>WhatsApp Chat</span>
                 </a>
               </li>
-              <li className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#16A765] shrink-0" />
-                <a href={COMPANY_INFO.emailMailto} className="hover:text-[#16A765] transition-colors text-[#5A6E85]">
-                  {COMPANY_INFO.email}
+              <li>
+                <a
+                  href={COMPANY_INFO.emailMailto}
+                  className="text-slate-300 hover:text-[#0FA968] flex items-center gap-1.5 transition-colors"
+                >
+                  <Mail className="w-3.5 h-3.5 text-[#0FA968]" />
+                  <span>{COMPANY_INFO.email}</span>
                 </a>
               </li>
-              <li className="flex items-center gap-2.5 text-xs text-[#087F4E] font-semibold pt-1">
-                <Clock className="w-4 h-4 text-[#16A765] shrink-0" />
-                <span>{COMPANY_INFO.operatingHours}</span>
+              <li className="pt-2">
+                <Link
+                  href="/book-inspection"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0FA968] hover:bg-[#087A4A] text-white text-xs font-extrabold transition-all"
+                >
+                  <span>Book Inspection</span>
+                  <ArrowRight className="w-3 h-3" />
+                </Link>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Bar & Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#5A6E85]">
-          <p>© 2026 {COMPANY_INFO.name}. All rights reserved.</p>
-          <div className="flex items-center gap-6 font-medium">
-            <Link href="/faq" className="hover:text-[#0B2345] transition-colors">
+        {/* Bottom Strip */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <div>
+            © {new Date().getFullYear()} Fidz Pest Management. All rights reserved. Registered Singapore Vector Control Operator.
+          </div>
+          <div className="flex items-center gap-6">
+            <Link href="/faq" className="hover:text-white transition-colors">
               FAQ
             </Link>
-            <Link href="/about" className="hover:text-[#0B2345] transition-colors">
-              About Fidz
+            <Link href="/about" className="hover:text-white transition-colors">
+              About
             </Link>
-            <Link href="/contact" className="hover:text-[#0B2345] transition-colors">
-              Book Inspection
+            <Link href="/contact" className="hover:text-white transition-colors">
+              Contact
             </Link>
           </div>
         </div>

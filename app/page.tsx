@@ -1,41 +1,44 @@
 import React from "react";
 import type { Metadata } from "next";
 import { Hero } from "@/components/home/Hero";
-import { EmergencyBanner } from "@/components/home/EmergencyBanner";
 import { TrustBar } from "@/components/home/TrustBar";
-import { ServicesGrid } from "@/components/home/ServicesGrid";
-import { Process } from "@/components/home/Process";
+import { PestPills } from "@/components/home/PestPills";
+import { ServicesSection } from "@/components/home/ServicesSection";
 import { WhyFidz } from "@/components/home/WhyFidz";
-import { ResidentialCommercial } from "@/components/home/ResidentialCommercial";
 import { IndustriesSection } from "@/components/home/IndustriesSection";
-import { Testimonials } from "@/components/home/Testimonials";
-import { ClientLogos } from "@/components/home/ClientLogos";
-import { AboutPreview } from "@/components/home/AboutPreview";
-import { FAQPreview } from "@/components/home/FAQPreview";
-import { FinalCTA } from "@/components/home/FinalCTA";
+import { ProcessSection } from "@/components/home/ProcessSection";
+import { AreasSection } from "@/components/home/AreasSection";
+import { EmergencyCTA } from "@/components/home/EmergencyCTA";
+import { FAQSection } from "@/components/home/FAQSection";
+import { BookingSection } from "@/components/home/BookingSection";
 
 export const metadata: Metadata = {
-  title: "24/7 Pest Control Singapore | Fidz Pest Management",
+  title: "24/7 Pest Control Singapore | Fidz Pest Management (NEA Registered)",
   description:
-    "Fidz Pest Management provides 24/7 pest control services across Singapore for homes and businesses, including termite, bed bug, cockroach, ant, fly and rodent control.",
+    "Fidz Pest Management provides 24/7 professional pest control across Singapore for homes and businesses. Officially registered NEA vector control operator for termites, bed bugs, cockroaches, ants, rodents, and flying pests.",
+  openGraph: {
+    title: "24/7 Pest Control Singapore | Fidz Pest Management",
+    description:
+      "Precision pest eradication for residential and commercial premises across Singapore. Officially licensed NEA Vector Control Operator.",
+    type: "website",
+    locale: "en_SG",
+  },
 };
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <EmergencyBanner />
       <TrustBar />
-      <ServicesGrid />
-      <Process />
+      <PestPills />
+      <ServicesSection />
       <WhyFidz />
-      <ResidentialCommercial />
       <IndustriesSection />
-      <Testimonials />
-      <ClientLogos />
-      <AboutPreview />
-      <FAQPreview />
-      <FinalCTA />
+      <ProcessSection />
+      <AreasSection />
+      <EmergencyCTA />
+      <FAQSection />
+      <BookingSection />
     </>
   );
 }

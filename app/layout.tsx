@@ -1,133 +1,72 @@
-import type { Metadata } from "next";
-import { Manrope, Inter } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { MobileBottomBar } from "@/components/layout/MobileBottomBar";
-import { COMPANY_INFO } from "@/lib/constants";
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-manrope",
-  display: "swap",
-});
 
 const inter = Inter({
-  subsets: ["latin"],
   variable: "--font-inter",
+  subsets: ["latin"],
   display: "swap",
 });
 
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#0FA968",
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL(COMPANY_INFO.websiteUrl),
+  metadataBase: new URL("https://fidzpest.sg"),
   title: {
-    default: "24/7 Pest Control Singapore | Fidz Pest Management",
+    default: "Fidz Pest Management | 24/7 Pest Control Singapore (NEA Registered)",
     template: "%s | Fidz Pest Management",
   },
   description:
-    "Fidz Pest Management provides 24/7 pest control services across Singapore for homes and businesses, including termite, bed bug, cockroach, ant, fly and rodent control.",
+    "Fidz Pest Management is a registered Singapore Vector Control Operator (NEA53397893M) providing 24/7 pest control services for residential, commercial, F&B, and industrial properties.",
   keywords: [
-    "pest control Singapore",
-    "emergency pest control Singapore",
-    "termite treatment Singapore",
-    "bed bug treatment Singapore",
-    "cockroach control Singapore",
-    "ant control Singapore",
-    "rodent control Singapore",
-    "soil treatment Singapore",
-    "NEA registered pest control",
-    "Fidz Pest Management",
+    "pest control singapore",
+    "24/7 pest control singapore",
+    "nea registered pest control",
+    "termite control singapore",
+    "bed bug treatment singapore",
+    "cockroach control singapore",
+    "rodent control singapore",
+    "fidz pest management",
   ],
   authors: [{ name: "Fidz Pest Management" }],
-  creator: "Fidz Pest Management",
-  publisher: "Fidz Pest Management",
-  formatDetection: {
-    email: true,
-    address: true,
-    telephone: true,
+  icons: {
+    icon: "/favicon.ico",
   },
   openGraph: {
-    type: "website",
-    locale: "en_SG",
-    url: COMPANY_INFO.websiteUrl,
-    title: "24/7 Pest Control Singapore | Fidz Pest Management",
+    title: "Fidz Pest Management | 24/7 Pest Control Singapore",
     description:
-      "Fidz Pest Management provides 24/7 pest control services across Singapore for homes and businesses, including termite, bed bug, cockroach, ant, fly and rodent control.",
+      "Precision pest eradication for residential and commercial premises across Singapore. Officially licensed NEA Vector Control Operator.",
+    url: "https://fidzpest.sg",
     siteName: "Fidz Pest Management",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "24/7 Pest Control Singapore | Fidz Pest Management",
-    description:
-      "Fast, professional pest management for homes and businesses across Singapore.",
-  },
-  robots: {
-    index: true,
-    follow: true,
+    locale: "en_SG",
+    type: "website",
   },
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: COMPANY_INFO.name,
-    image: `${COMPANY_INFO.websiteUrl}/og-image.jpg`,
-    "@id": COMPANY_INFO.websiteUrl,
-    url: COMPANY_INFO.websiteUrl,
-    telephone: COMPANY_INFO.phone,
-    email: COMPANY_INFO.email,
-    priceRange: "$$",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: COMPANY_INFO.address.street,
-      addressLocality: "Midview City",
-      postalCode: COMPANY_INFO.address.postalCode,
-      addressCountry: "SG",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 1.3571,
-      longitude: 103.8344,
-    },
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday",
-        ],
-        opens: "00:00",
-        closes: "23:59",
-      },
-    ],
-    sameAs: [
-      COMPANY_INFO.whatsappUrl,
-    ],
-  };
-
+}>) {
   return (
-    <html lang="en" className={`${manrope.variable} ${inter.variable}`}>
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </head>
-      <body className="min-h-screen flex flex-col font-body bg-white text-[#10213D] selection:bg-[#C9A962] selection:text-[#071A3A]">
+    <html lang="en" className={`${inter.variable} ${manrope.variable} scroll-smooth`}>
+      <body className="min-h-screen flex flex-col font-sans text-slate-800 antialiased selection:bg-[#DDF7EA] selection:text-[#087A4A]">
         <Header />
         <main className="flex-1 w-full">{children}</main>
         <Footer />
-        <MobileBottomBar />
       </body>
     </html>
   );

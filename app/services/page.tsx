@@ -1,17 +1,18 @@
 import React from "react";
 import type { Metadata } from "next";
-import { ArrowRight, Flame, Layers, Bug, Sparkles, BedDouble, ShieldAlert, ShieldCheck, Eye } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Flame, ShieldAlert, BedDouble, Bug, Sparkles, ShieldCheck, Eye, Layers } from "lucide-react";
 import { SERVICES } from "@/lib/services";
 import { Container } from "@/components/ui/Container";
-import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
-import { Process } from "@/components/home/Process";
-import { FinalCTA } from "@/components/home/FinalCTA";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { GlassCard } from "@/components/glass/GlassCard";
+import { EmergencyCTA } from "@/components/home/EmergencyCTA";
+import { BookingSection } from "@/components/home/BookingSection";
 
 export const metadata: Metadata = {
-  title: "Complete Pest Control Services Singapore | Fidz Pest Management",
+  title: "Professional Pest Control Services Singapore | Fidz Pest Management",
   description:
-    "Explore our complete range of targeted pest control services across Singapore: Termite baiting, bed bug steam treatment, cockroach gel baiting, rodent control, and pre-construction soil treatment.",
+    "Comprehensive pest control services in Singapore including emergency dispatch, termites, bed bugs, cockroaches, rodents, ants, and flying pests. NEA registered.",
 };
 
 const iconMap: Record<string, React.ElementType> = {
@@ -27,124 +28,87 @@ const iconMap: Record<string, React.ElementType> = {
 
 export default function ServicesPage() {
   return (
-    <div className="w-full">
-      {/* Hero */}
-      <section className="bg-mesh-hero pt-10 sm:pt-16 pb-16 sm:pb-24 border-b border-slate-200/80 text-center">
-        <Container size="narrow">
-          <div className="space-y-5">
-            <Badge variant="green" size="md">
-              SINGAPORE VECTOR CONTROL SERVICES
-            </Badge>
-            <h1 className="text-4xl sm:text-6xl font-extrabold text-[#0B2345] font-heading tracking-tight leading-[1.08]">
-              Targeted Pest Control.{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#16A765] via-[#087F4E] to-[#16A765]">
-                Professional Treatment.
-              </span>
-            </h1>
-            <p className="text-base sm:text-lg text-[#5A6E85] max-w-2xl mx-auto leading-relaxed">
-              Every pest problem requires species-specific eradication. Explore our NEA-compliant residential and commercial treatment programs.
-            </p>
-          </div>
+    <div className="pt-6 sm:pt-10">
+      {/* Header Section */}
+      <section className="py-12 sm:py-16 relative overflow-hidden text-center">
+        <div className="orb-emerald -top-20 left-1/4 opacity-15" />
+        <div className="orb-blue top-10 right-1/4 opacity-15" />
+
+        <Container className="relative z-10">
+          <SectionHeading
+            eyebrow="TARGETED VECTOR CONTROL"
+            eyebrowVariant="green"
+            title="Comprehensive Pest Management Solutions"
+            subtitle="Singapore-wide targeted inspection, colony eradication, and NEA-compliant preventive treatments for homes, F&B, commercial offices, and industrial hubs."
+            align="center"
+            className="mb-8"
+          />
         </Container>
       </section>
 
-      {/* Services List Section (Editorial Glass Cards) */}
-      <section className="py-16 sm:py-24 bg-[#FFFFFF] border-b border-slate-200/80">
+      {/* Services Grid */}
+      <section className="pb-16 sm:pb-24">
         <Container>
-          <div className="space-y-10 sm:space-y-14">
-            {SERVICES.map((service, idx) => {
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {SERVICES.map((service) => {
               const Icon = iconMap[service.iconName] || Bug;
-              const isEven = idx % 2 === 0;
 
               return (
-                <div
+                <GlassCard
                   key={service.slug}
-                  className="bg-white/85 backdrop-blur-md border border-slate-200/90 rounded-[26px] overflow-hidden p-6 sm:p-8 lg:p-10 shadow-[0_10px_35px_rgba(16,42,67,0.04)] hover:shadow-[0_20px_50px_rgba(16,42,67,0.08)] transition-all duration-300 hover:border-[#16A765]/40"
+                  variant="medium"
+                  interactive
+                  className="overflow-hidden flex flex-col justify-between group"
                 >
-                  <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center ${isEven ? "" : "lg:flex-row-reverse"}`}>
-                    {/* Image Column */}
-                    <div className={`lg:col-span-5 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
-                      <div className="relative rounded-2xl overflow-hidden aspect-[16/11] border border-slate-200/80 shadow-xs bg-slate-100">
-                        <img
-                          src={service.cardImage}
-                          alt={service.title}
-                          className="w-full h-full object-cover"
-                          loading="lazy"
-                        />
-                        {service.isEmergency && (
-                          <div className="absolute top-3 left-3 bg-[#E5394F] text-white text-xs font-extrabold uppercase px-3 py-1 rounded-full shadow-md">
-                            24/7 Rapid Dispatch
-                          </div>
-                        )}
-                      </div>
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
+                    <img
+                      src={service.cardImage}
+                      alt={service.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#09264A]/60 via-transparent to-transparent" />
+
+                    <div className="absolute bottom-3 left-3 w-10 h-10 rounded-2xl bg-white/90 backdrop-blur-md border border-white flex items-center justify-center text-[#0FA968] shadow-sm">
+                      <Icon className="w-5 h-5 stroke-[2]" />
                     </div>
 
-                    {/* Content Column */}
-                    <div className={`lg:col-span-7 space-y-4 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
-                      <div className="flex items-center gap-2">
-                        <div className="w-9 h-9 rounded-xl bg-[#E8F8EF] text-[#16A765] flex items-center justify-center shrink-0">
-                          <Icon className="w-5 h-5" />
-                        </div>
-                        <span className="text-xs font-extrabold uppercase tracking-wider text-[#087F4E] bg-[#E8F8EF] px-2.5 py-1 rounded-full">
-                          Service 0{idx + 1}
-                        </span>
+                    {service.isEmergency && (
+                      <div className="absolute top-3 right-3 bg-[#E5394F] text-white text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full shadow-sm animate-pulse">
+                        24/7 Response
                       </div>
+                    )}
+                  </div>
 
-                      <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B2345] font-heading">
+                  <div className="p-6 sm:p-7 flex flex-col flex-1 justify-between gap-5">
+                    <div className="space-y-2.5">
+                      <h3 className="text-xl sm:text-2xl font-extrabold text-[#09264A] font-heading group-hover:text-[#0FA968] transition-colors leading-tight">
                         {service.title}
-                      </h2>
-
-                      <p className="text-sm sm:text-base text-[#5A6E85] leading-relaxed">
-                        {service.overview}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                        {service.headline}
                       </p>
+                    </div>
 
-                      <div className="pt-2">
-                        <div className="text-xs font-bold text-[#0B2345] uppercase tracking-wider mb-2">
-                          Common Target Signs:
-                        </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#5A6E85]">
-                          {service.whatToLookFor.signs.slice(0, 4).map((sign, sIdx) => (
-                            <div key={sIdx} className="flex items-center gap-1.5 bg-[#F8FBFD] p-2 rounded-xl border border-slate-200/80 font-medium">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#16A765]" />
-                              <span className="font-bold text-[#102A43]">{sign.name}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="pt-4 flex flex-wrap items-center gap-3">
-                        <Button
-                          href={`/services/${service.slug}`}
-                          variant="primary"
-                          size="md"
-                          rightIcon={<ArrowRight className="w-4 h-4" />}
-                          className="text-xs sm:text-sm font-extrabold uppercase tracking-wider shadow-md shadow-[#16A765]/20"
-                        >
-                          Explore Service & Protocol
-                        </Button>
-                        <Button
-                          href="/contact"
-                          variant="secondary"
-                          size="md"
-                          className="text-xs sm:text-sm font-bold"
-                        >
-                          Book Inspection
-                        </Button>
-                      </div>
+                    <div className="pt-4 border-t border-white/60">
+                      <Link
+                        href={`/services/${service.slug}`}
+                        className="inline-flex items-center justify-between w-full text-xs font-bold text-[#09264A] group-hover:text-[#0FA968] transition-colors"
+                      >
+                        <span>View Treatment Protocol</span>
+                        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 text-[#0FA968]" />
+                      </Link>
                     </div>
                   </div>
-                </div>
+                </GlassCard>
               );
             })}
           </div>
         </Container>
       </section>
 
-      {/* Process Section */}
-      <Process />
-
-      {/* Final CTA */}
-      <FinalCTA />
+      <EmergencyCTA />
+      <BookingSection />
     </div>
   );
 }

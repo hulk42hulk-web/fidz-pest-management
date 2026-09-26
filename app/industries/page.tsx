@@ -4,102 +4,85 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { INDUSTRIES } from "@/lib/industries";
 import { Container } from "@/components/ui/Container";
-import { Badge } from "@/components/ui/Badge";
-import { ClientLogos } from "@/components/home/ClientLogos";
-import { FinalCTA } from "@/components/home/FinalCTA";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { GlassCard } from "@/components/glass/GlassCard";
+import { BookingSection } from "@/components/home/BookingSection";
 
 export const metadata: Metadata = {
-  title: "Commercial & Residential Industries Served | Fidz Pest Management Singapore",
+  title: "Industry Pest Control Solutions Singapore | Fidz Pest Management",
   description:
-    "Specialized vector control and pest management solutions for Singapore industries: F&B restaurants, schools, childcare centers, healthcare facilities, and manufacturing plants.",
+    "Sector-specific pest control for F&B, healthcare, education, commercial offices, industrial plants, and residential properties across Singapore. SFA and NEA compliant.",
 };
 
 export default function IndustriesPage() {
   return (
-    <div className="w-full">
-      {/* Hero */}
-      <section className="bg-mesh-hero pt-10 sm:pt-16 pb-16 sm:pb-24 border-b border-slate-200/80 text-center">
-        <Container size="narrow">
-          <div className="space-y-6">
-            <Badge variant="green" size="md">
-              SINGAPORE INDUSTRY SOLUTIONS
-            </Badge>
-            <h1 className="text-4xl sm:text-6xl font-extrabold text-[#0B2345] font-heading tracking-tight leading-[1.08]">
-              Pest Management For{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#16A765] via-[#087F4E] to-[#16A765]">
-                Singapore Businesses
-              </span>
-            </h1>
-            <p className="text-base sm:text-lg text-[#5A6E85] max-w-2xl mx-auto leading-relaxed">
-              Every facility faces distinct regulatory standards and biological vectors. Discover our customized pest management programs conforming to SFA, ECDA, MOH, and BCA requirements.
-            </p>
-          </div>
+    <div className="pt-6 sm:pt-10">
+      <section className="py-12 sm:py-16 relative overflow-hidden text-center">
+        <div className="orb-emerald -top-20 left-1/4 opacity-15" />
+        <div className="orb-blue top-10 right-1/4 opacity-15" />
+
+        <Container className="relative z-10">
+          <SectionHeading
+            eyebrow="COMMERCIAL & SECTOR EXPERTISE"
+            eyebrowVariant="green"
+            title="Industry-Specific Vector Control Programs"
+            subtitle="Tailored regulatory compliance and IPM protocols for Singapore Food Agency (SFA), ECDA, MOH, and NEA audit environments."
+            align="center"
+            className="mb-8"
+          />
         </Container>
       </section>
 
-      {/* Industry Cards Grid */}
-      <section className="py-16 sm:py-24 bg-[#FFFFFF] border-b border-slate-200/80">
+      <section className="pb-16 sm:pb-24">
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {INDUSTRIES.map((ind) => (
-              <div
-                key={ind.slug}
-                className="bg-white border border-slate-200/90 rounded-[24px] overflow-hidden shadow-[0_10px_30px_rgba(16,42,67,0.04)] hover:shadow-[0_20px_50px_rgba(16,42,67,0.08)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 hover:border-[#16A765]/40"
+            {INDUSTRIES.map((industry) => (
+              <GlassCard
+                key={industry.slug}
+                variant="medium"
+                interactive
+                className="overflow-hidden flex flex-col justify-between group"
               >
-                <div>
-                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
-                    <img
-                      src={ind.cardImage}
-                      alt={ind.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B2345]/30 via-transparent to-transparent" />
-                  </div>
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
+                  <img
+                    src={industry.cardImage}
+                    alt={industry.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#09264A]/60 via-transparent to-transparent" />
+                </div>
 
-                  <div className="p-6 space-y-3">
-                    <h2 className="text-xl sm:text-2xl font-extrabold text-[#0B2345] font-heading group-hover:text-[#16A765] transition-colors">
-                      {ind.title}
-                    </h2>
-                    <p className="text-sm text-[#5A6E85] leading-relaxed line-clamp-3">
-                      {ind.subheadline}
+                <div className="p-6 sm:p-7 flex flex-col flex-1 justify-between gap-5">
+                  <div className="space-y-2.5">
+                    <h3 className="text-xl sm:text-2xl font-extrabold text-[#09264A] font-heading group-hover:text-[#0FA968] transition-colors leading-tight">
+                      {industry.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm font-bold text-[#087A4A]">
+                      {industry.headline}
                     </p>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                      {industry.overview}
+                    </p>
+                  </div>
 
-                    <div className="pt-2">
-                      <div className="text-xs font-bold text-[#16A765] uppercase tracking-wider mb-2">
-                        Key Targeted Pests:
-                      </div>
-                      <div className="flex flex-wrap gap-1.5">
-                        {ind.commonPests.slice(0, 3).map((p, i) => (
-                          <span key={i} className="text-[11px] bg-[#F8FBFD] border border-slate-200 px-2.5 py-1 rounded-md text-[#102A43] font-bold">
-                            {p}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+                  <div className="pt-4 border-t border-white/60">
+                    <Link
+                      href={`/industries/${industry.slug}`}
+                      className="inline-flex items-center justify-between w-full text-xs font-bold text-[#09264A] group-hover:text-[#0FA968] transition-colors"
+                    >
+                      <span>Explore Sector Protocols</span>
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 text-[#0FA968]" />
+                    </Link>
                   </div>
                 </div>
-
-                <div className="p-6 pt-0">
-                  <Link
-                    href={`/industries/${ind.slug}`}
-                    className="inline-flex items-center justify-between w-full px-5 py-3 rounded-xl bg-[#16A765] hover:bg-[#087F4E] text-white text-xs sm:text-sm font-extrabold uppercase tracking-wider shadow-md shadow-[#16A765]/15 transition-all"
-                  >
-                    <span>Sector Details</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </div>
+              </GlassCard>
             ))}
           </div>
         </Container>
       </section>
 
-      {/* Client Logos */}
-      <ClientLogos />
-
-      {/* Final CTA */}
-      <FinalCTA />
+      <BookingSection />
     </div>
   );
 }

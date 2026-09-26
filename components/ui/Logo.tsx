@@ -22,37 +22,49 @@ export function Logo({
       )}
       aria-label="Fidz Pest Management - Home"
     >
-      {/* Brand Icon / Shield Mark with Green Accent */}
-      <div className="relative shrink-0 w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-white to-[#E8F8EF] border border-[#16A765]/30 flex items-center justify-center shadow-sm group-hover:border-[#16A765] group-hover:shadow-md transition-all">
+      {/* Brand Icon / Shield Mark with Leaf */}
+      <div className="relative shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-slate-200/80 flex items-center justify-center shadow-2xs group-hover:border-[#0FA968] transition-all">
         <svg
           viewBox="0 0 24 24"
           fill="none"
-          stroke="currentColor"
-          className="w-5 h-5 sm:w-6 sm:h-6 text-[#16A765] transition-transform group-hover:scale-105"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+          className="w-5 h-5 sm:w-6 sm:h-6 text-[#0FA968] transition-transform group-hover:scale-105"
         >
-          {/* Shield base with F emblem */}
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" className="fill-[#16A765]/10" stroke="#16A765" />
-          <path d="M9 8h6M9 12h4M9 8v8" stroke="#0B2345" strokeWidth="2.2" />
+          {/* Shield outline */}
+          <path
+            d="M12 21.5s7.5-3.5 7.5-9.5V5.5l-7.5-3-7.5 3V12c0 6 7.5 9.5 7.5 9.5z"
+            stroke="#0FA968"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            fill="#DDF7EA"
+          />
+          {/* Inner leaf badge */}
+          <path
+            d="M12 7.5c-2.2 0-3.5 1.5-3.5 3.8 0 2.8 3.5 5.2 3.5 5.2s3.5-2.4 3.5-5.2c0-2.3-1.3-3.8-3.5-3.8z"
+            fill="#0FA968"
+          />
+          <path
+            d="M12 9v4.5"
+            stroke="white"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+          />
         </svg>
-        <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-[#16A765] rounded-full ring-2 ring-white shadow-xs" />
       </div>
 
       {/* Brand Text */}
       <div className="flex flex-col text-left">
-        <div className="flex items-center gap-1.5">
-          <span className="font-extrabold tracking-tight text-xl sm:text-2xl uppercase font-heading text-[#0B2345]">
+        <div className="flex items-center gap-1.5 leading-none">
+          <span className="font-extrabold tracking-tight text-lg sm:text-xl uppercase font-heading text-[#09264A]">
             FIDZ
           </span>
-          <span className="text-xs sm:text-sm font-extrabold tracking-wider text-[#16A765] uppercase">
-            Pest Mgt
+          <span className="text-xs sm:text-sm font-extrabold tracking-wider text-[#0FA968] uppercase">
+            PEST MGT
           </span>
         </div>
         {showTagline && !isCompact && (
-          <span className="text-[10px] sm:text-[11px] font-semibold tracking-wide uppercase text-[#5A6E85]">
-            Singapore • 24/7 Response
+          <span className="text-[9px] sm:text-[10px] font-semibold tracking-wide uppercase text-slate-500 mt-1">
+            SINGAPORE • 24/7 RESPONSE
           </span>
         )}
       </div>
