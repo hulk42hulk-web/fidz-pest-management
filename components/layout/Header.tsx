@@ -27,24 +27,24 @@ export function Header() {
     <>
       {/* Top micro-bar for NEA status and 24/7 Hotline */}
       <div className="bg-[#F8FCFB]/90 border-b border-slate-200/60 text-xs py-2 px-4 hidden lg:block relative z-50">
-        <div className="max-w-[1320px] mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="flex items-center gap-1.5 text-[#0FA968] font-bold">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#0FA968]" />
+        <div className="max-w-[1360px] mx-auto flex items-center justify-between gap-4 whitespace-nowrap">
+          <div className="flex items-center gap-3 shrink-0">
+            <span className="flex items-center gap-1.5 text-[#0FA968] font-bold whitespace-nowrap">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#0FA968] shrink-0" />
               NEA Registered Operator ({COMPANY_INFO.neaReg})
             </span>
             <span className="text-slate-300">•</span>
-            <span className="flex items-center gap-1.5 text-slate-600 font-medium">
-              <MapPin className="w-3.5 h-3.5 text-slate-400" />
+            <span className="flex items-center gap-1.5 text-slate-600 font-medium whitespace-nowrap">
+              <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
               Singapore-Wide Service (All Districts)
             </span>
           </div>
-          <div className="flex items-center gap-4 text-xs">
+          <div className="flex items-center gap-4 text-xs shrink-0 whitespace-nowrap">
             <a
               href={COMPANY_INFO.phoneTel}
-              className="flex items-center gap-1.5 text-slate-700 hover:text-[#0FA968] font-semibold transition-colors"
+              className="flex items-center gap-1.5 text-slate-700 hover:text-[#0FA968] font-semibold transition-colors whitespace-nowrap"
             >
-              <Phone className="w-3.5 h-3.5 text-[#0FA968]" />
+              <Phone className="w-3.5 h-3.5 text-[#0FA968] shrink-0" />
               <span>24/7 Emergency Hotline:</span>
               <span className="font-bold text-[#09264A]">{COMPANY_INFO.phone}</span>
             </a>
@@ -53,9 +53,9 @@ export function Header() {
               href={COMPANY_INFO.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-slate-700 hover:text-[#0FA968] font-semibold transition-colors"
+              className="flex items-center gap-1.5 text-slate-700 hover:text-[#0FA968] font-semibold transition-colors whitespace-nowrap"
             >
-              <MessageCircle className="w-3.5 h-3.5 text-[#0FA968]" />
+              <MessageCircle className="w-3.5 h-3.5 text-[#0FA968] shrink-0" />
               <span>WhatsApp:</span>
               <span className="font-bold text-[#09264A]">{COMPANY_INFO.whatsappFormatted}</span>
             </a>
@@ -66,16 +66,16 @@ export function Header() {
       {/* Floating Glass Pill Navigation Bar */}
       <header
         className={cn(
-          "sticky top-0 z-40 w-full transition-all duration-300 px-3 sm:px-6",
+          "sticky top-0 z-40 w-full transition-all duration-300 px-3 sm:px-5 lg:px-6",
           isScrolled ? "py-2 bg-white/40 backdrop-blur-md" : "py-3 bg-transparent"
         )}
       >
-        <div className="max-w-[1320px] mx-auto glass-pill-bar rounded-full px-4 sm:px-6 py-2.5 flex items-center justify-between">
-          {/* Brand Logo */}
-          <Logo showTagline={true} />
+        <div className="max-w-[1360px] mx-auto glass-pill-bar rounded-full px-4 sm:px-5 xl:px-6 py-2 xl:py-2.5 flex items-center justify-between gap-3 xl:gap-5">
+          {/* Brand Logo with official transparent logo */}
+          <Logo />
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5">
+          {/* Desktop Navigation Links - NO SHRINK, NO WRAP */}
+          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1.5 shrink min-w-0">
             {NAV_LINKS.map((link) => {
               const hasChildren = link.children && link.children.length > 0;
               const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
@@ -84,23 +84,23 @@ export function Header() {
                 return (
                   <div
                     key={link.label}
-                    className="relative"
+                    className="relative shrink-0"
                     onMouseEnter={() => setActiveDropdown(link.label)}
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
                     <button
                       className={cn(
-                        "px-3 py-1.5 text-xs xl:text-sm font-semibold rounded-full transition-all flex items-center gap-1 cursor-pointer",
+                        "px-2.5 xl:px-3 py-1.5 text-xs xl:text-[13px] font-semibold rounded-full transition-all flex items-center gap-1 cursor-pointer whitespace-nowrap shrink-0",
                         isActive
                           ? "bg-[#EEF8FF] text-[#09264A] font-bold"
-                          : "text-slate-700 hover:text-[#09264A] hover:bg-slate-100/60"
+                          : "text-slate-700 hover:text-[#09264A] hover:bg-slate-100/70"
                       )}
                       aria-expanded={activeDropdown === link.label}
                     >
-                      <span>{link.label}</span>
+                      <span className="whitespace-nowrap">{link.label}</span>
                       <ChevronDown
                         className={cn(
-                          "w-3.5 h-3.5 transition-transform duration-200 text-slate-400",
+                          "w-3 h-3 transition-transform duration-200 text-slate-400 shrink-0",
                           activeDropdown === link.label && "rotate-180 text-[#0FA968]"
                         )}
                       />
@@ -112,7 +112,7 @@ export function Header() {
                         <div className="py-1">
                           <Link
                             href={link.href}
-                            className="block px-3 py-1.5 text-[11px] uppercase tracking-wider font-extrabold text-[#0FA968] hover:text-[#087A4A] border-b border-slate-100 mb-1"
+                            className="block px-3 py-1.5 text-[11px] uppercase tracking-wider font-extrabold text-[#0FA968] hover:text-[#087A4A] border-b border-slate-100 mb-1 whitespace-nowrap"
                           >
                             All {link.label} Overview →
                           </Link>
@@ -120,7 +120,7 @@ export function Header() {
                             <Link
                               key={child.href}
                               href={child.href}
-                              className="block px-3 py-2 text-xs font-semibold text-slate-700 hover:text-[#09264A] hover:bg-[#F3F8FC] rounded-xl transition-colors"
+                              className="block px-3 py-2 text-xs font-semibold text-slate-700 hover:text-[#09264A] hover:bg-[#F3F8FC] rounded-xl transition-colors whitespace-nowrap"
                             >
                               {child.label}
                             </Link>
@@ -137,27 +137,34 @@ export function Header() {
                   key={link.label}
                   href={link.href}
                   className={cn(
-                    "px-3.5 py-1.5 text-xs xl:text-sm font-semibold rounded-full transition-all",
+                    "px-2.5 xl:px-3 py-1.5 text-xs xl:text-[13px] font-semibold rounded-full transition-all whitespace-nowrap shrink-0",
                     isActive
                       ? "bg-[#EEF8FF] text-[#09264A] font-bold shadow-2xs"
-                      : "text-slate-700 hover:text-[#09264A] hover:bg-slate-100/60"
+                      : "text-slate-700 hover:text-[#09264A] hover:bg-slate-100/70"
                   )}
                 >
-                  {link.label}
+                  <span className="whitespace-nowrap">{link.label}</span>
                 </Link>
               );
             })}
           </nav>
 
           {/* Right Action Button Pill Group */}
-          <div className="hidden sm:flex items-center gap-2">
-            {/* Phone Button */}
+          <div className="flex items-center gap-1.5 xl:gap-2 shrink-0">
+            {/* Phone Button (Full text on 2xl, icon on xl) */}
             <a
               href={COMPANY_INFO.phoneTel}
-              className="hidden xl:flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-[#09264A] bg-white border border-slate-200/90 rounded-full shadow-2xs hover:bg-slate-50 transition-all"
+              className="hidden 2xl:flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-bold text-[#09264A] bg-white border border-slate-200/90 rounded-full shadow-2xs hover:bg-slate-50 transition-all whitespace-nowrap shrink-0"
             >
-              <Phone className="w-3.5 h-3.5 text-sky-600" />
-              <span>{COMPANY_INFO.phone}</span>
+              <Phone className="w-3.5 h-3.5 text-sky-600 shrink-0" />
+              <span className="whitespace-nowrap">{COMPANY_INFO.phone}</span>
+            </a>
+            <a
+              href={COMPANY_INFO.phoneTel}
+              className="hidden xl:flex 2xl:hidden p-2 rounded-full bg-white border border-slate-200/90 text-[#09264A] shadow-2xs hover:bg-slate-50 shrink-0"
+              title={`Call ${COMPANY_INFO.phone}`}
+            >
+              <Phone className="w-3.5 h-3.5 text-sky-600 shrink-0" />
             </a>
 
             {/* WhatsApp Button */}
@@ -165,40 +172,40 @@ export function Header() {
               href={COMPANY_INFO.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-white bg-[#0FA968] hover:bg-[#087A4A] rounded-full shadow-xs transition-all"
+              className="hidden sm:flex items-center gap-1.5 px-3.5 xl:px-4 py-1.5 xl:py-2 text-xs font-bold text-white bg-[#0FA968] hover:bg-[#087A4A] rounded-full shadow-xs transition-all whitespace-nowrap shrink-0"
             >
-              <MessageCircle className="w-3.5 h-3.5" />
-              <span>WhatsApp</span>
+              <MessageCircle className="w-3.5 h-3.5 shrink-0" />
+              <span className="whitespace-nowrap">WhatsApp</span>
             </a>
 
             {/* Book Inspection Button */}
             <Link
               href="/book-inspection"
-              className="flex items-center gap-1 px-4 py-2 text-xs font-bold text-white bg-[#09264A] hover:bg-[#12345B] rounded-full shadow-xs transition-all"
+              className="flex items-center gap-1 px-3.5 xl:px-4 py-1.5 xl:py-2 text-xs font-bold text-white bg-[#09264A] hover:bg-[#12345B] rounded-full shadow-xs transition-all whitespace-nowrap shrink-0"
             >
-              <span>Book Inspection</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <span className="whitespace-nowrap">Book Inspection</span>
+              <ArrowRight className="w-3.5 h-3.5 shrink-0" />
             </Link>
-          </div>
 
-          {/* Mobile Menu Toggle Button */}
-          <div className="flex items-center gap-2 lg:hidden">
-            <a
-              href={COMPANY_INFO.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 rounded-full bg-[#0FA968] text-white"
-              aria-label="WhatsApp"
-            >
-              <MessageCircle className="w-4 h-4" />
-            </a>
-            <button
-              onClick={() => setIsMobileMenuOpen(true)}
-              className="p-2 rounded-full text-[#09264A] bg-slate-100/80 hover:bg-slate-200/80 focus:outline-none"
-              aria-label="Open Navigation Menu"
-            >
-              <Menu className="w-5 h-5" />
-            </button>
+            {/* Mobile Menu Toggle Button */}
+            <div className="flex items-center gap-1.5 lg:hidden">
+              <a
+                href={COMPANY_INFO.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-[#0FA968] text-white sm:hidden shrink-0"
+                aria-label="WhatsApp"
+              >
+                <MessageCircle className="w-4 h-4 shrink-0" />
+              </a>
+              <button
+                onClick={() => setIsMobileMenuOpen(true)}
+                className="p-2 rounded-full text-[#09264A] bg-slate-100/80 hover:bg-slate-200/80 focus:outline-none shrink-0"
+                aria-label="Open Navigation Menu"
+              >
+                <Menu className="w-5 h-5 shrink-0" />
+              </button>
+            </div>
           </div>
         </div>
       </header>

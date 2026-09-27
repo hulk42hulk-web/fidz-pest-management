@@ -28,7 +28,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         <div className="space-y-6">
           {/* Header row with Logo and Close */}
           <div className="flex items-center justify-between pb-4 border-b border-slate-100">
-            <Logo isCompact={true} />
+            <Logo isCompact={false} />
             <button
               onClick={onClose}
               className="p-2 rounded-full text-slate-500 hover:text-[#09264A] hover:bg-slate-100 transition-colors"
