@@ -45,7 +45,7 @@ export function Hero() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-[40px] sm:text-[54px] lg:text-[64px] font-extrabold tracking-tight leading-[1.04] text-[#09264A] font-heading">
+            <h1 className="text-3xl sm:text-5xl lg:text-[62px] font-extrabold tracking-tight leading-[1.08] sm:leading-[1.04] text-[#09264A] font-heading">
               Professional Pest Control.{" "}
               <span className="text-[#0FA968]">
                 Right When You Need It.
@@ -53,39 +53,39 @@ export function Hero() {
             </h1>
 
             {/* Supporting Copy */}
-            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl font-normal">
+            <p className="text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed max-w-xl font-normal">
               Fast, professional pest management for homes and businesses across Singapore. Targeted inspection, colony eradication, and NEA-compliant safety standards.
             </p>
 
             {/* 2x2 Feature Checkpoint Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 w-full pt-1">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-xl bg-white/80 border border-white/95 shadow-2xs flex items-center justify-center text-[#0FA968] shrink-0">
-                  <Leaf className="w-4 h-4" />
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-white/80 border border-white/95 shadow-2xs flex items-center justify-center text-[#0FA968] shrink-0">
+                  <Leaf className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
                 </div>
                 <span className="text-xs sm:text-sm font-semibold text-slate-700">
                   Zero-Smell & Child/Pet-Safe Options
                 </span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-xl bg-white/80 border border-white/95 shadow-2xs flex items-center justify-center text-[#0FA968] shrink-0">
-                  <ShieldCheck className="w-4 h-4" />
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-white/80 border border-white/95 shadow-2xs flex items-center justify-center text-[#0FA968] shrink-0">
+                  <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
                 </div>
                 <span className="text-xs sm:text-sm font-semibold text-slate-700">
                   Certified Vector Control Operators
                 </span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-xl bg-white/80 border border-white/95 shadow-2xs flex items-center justify-center text-[#0FA968] shrink-0">
-                  <Zap className="w-4 h-4" />
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-white/80 border border-white/95 shadow-2xs flex items-center justify-center text-[#0FA968] shrink-0">
+                  <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
                 </div>
                 <span className="text-xs sm:text-sm font-semibold text-slate-700">
                   Rapid Islandwide Emergency Dispatch
                 </span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-xl bg-white/80 border border-white/95 shadow-2xs flex items-center justify-center text-[#0FA968] shrink-0">
-                  <FileText className="w-4 h-4" />
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-white/80 border border-white/95 shadow-2xs flex items-center justify-center text-[#0FA968] shrink-0">
+                  <FileText className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
                 </div>
                 <span className="text-xs sm:text-sm font-semibold text-slate-700">
                   SFA & NEA Inspection Documentation
@@ -94,30 +94,30 @@ export function Hero() {
             </div>
 
             {/* 3 Call-To-Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3 pt-2 w-full">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2 w-full sm:w-auto">
               <Link
                 href="/book-inspection"
-                className="rounded-full bg-[#0FA968] hover:bg-[#087A4A] text-white font-bold px-7 py-3.5 shadow-[0_10px_25px_rgba(15,169,104,0.3)] transition-all flex items-center gap-2 text-sm sm:text-base group cursor-pointer"
+                className="rounded-full bg-[#0FA968] hover:bg-[#087A4A] text-white font-bold px-6 sm:px-7 py-3 sm:py-3.5 shadow-[0_10px_25px_rgba(15,169,104,0.3)] transition-all flex items-center justify-center gap-2 text-sm sm:text-base group cursor-pointer shrink-0"
               >
                 <span>Book an Inspection</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 shrink-0" />
               </Link>
 
               <a
                 href={COMPANY_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full bg-white/85 hover:bg-white border border-slate-200/90 text-[#09264A] font-bold px-6 py-3.5 shadow-2xs transition-all flex items-center gap-2 text-sm sm:text-base cursor-pointer"
+                className="rounded-full bg-white/85 hover:bg-white border border-slate-200/90 text-[#09264A] font-bold px-5 sm:px-6 py-3 sm:py-3.5 shadow-2xs transition-all flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer shrink-0"
               >
-                <MessageCircle className="w-4 h-4 text-[#0FA968]" />
+                <MessageCircle className="w-4 h-4 text-[#0FA968] shrink-0" />
                 <span>WhatsApp Us</span>
               </a>
 
               <a
                 href={COMPANY_INFO.phoneTel}
-                className="rounded-full bg-white/85 hover:bg-white border border-slate-200/90 text-[#09264A] font-bold px-6 py-3.5 shadow-2xs transition-all flex items-center gap-2 text-sm sm:text-base cursor-pointer"
+                className="rounded-full bg-white/85 hover:bg-white border border-slate-200/90 text-[#09264A] font-bold px-5 sm:px-6 py-3 sm:py-3.5 shadow-2xs transition-all flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer shrink-0"
               >
-                <Phone className="w-4 h-4 text-sky-600" />
+                <Phone className="w-4 h-4 text-sky-600 shrink-0" />
                 <span>Call {COMPANY_INFO.phone}</span>
               </a>
             </div>

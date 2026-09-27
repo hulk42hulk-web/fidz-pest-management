@@ -63,9 +63,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${manrope.variable} scroll-smooth`}>
-      <body className="min-h-screen flex flex-col font-sans text-slate-800 antialiased selection:bg-[#DDF7EA] selection:text-[#087A4A]">
+      <body className="min-h-screen flex flex-col font-sans text-slate-800 antialiased selection:bg-[#DDF7EA] selection:text-[#087A4A] overflow-x-hidden w-full max-w-[100vw]">
         <Header />
-        <main className="flex-1 w-full">{children}</main>
+        <main className="flex-1 w-full overflow-x-hidden">{children}</main>
         <Footer />
       </body>
     </html>

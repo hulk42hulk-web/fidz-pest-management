@@ -15,8 +15,8 @@ export function Footer() {
 
       <Container className="relative z-10">
         {/* Top Emergency Glass Banner inside Footer */}
-        <div className="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-[28px] p-6 sm:p-8 mb-14 shadow-lg flex flex-col lg:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-4 text-center sm:text-left">
+        <div className="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-[24px] sm:rounded-[28px] p-5 sm:p-8 mb-14 shadow-lg flex flex-col lg:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
             <div className="w-12 h-12 rounded-2xl bg-[#E5394F]/25 border border-[#E5394F]/40 flex items-center justify-center shrink-0">
               <Flame className="w-6 h-6 text-[#E5394F] animate-pulse" />
             </div>
@@ -30,10 +30,10 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto justify-center">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto justify-center shrink-0">
             <a
               href={COMPANY_INFO.phoneTel}
-              className="flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-slate-100 !text-[#09264A] font-extrabold text-sm transition-all shadow-sm"
+              className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-slate-100 !text-[#09264A] font-extrabold text-sm transition-all shadow-sm"
             >
               <Phone className="w-4 h-4 text-[#0FA968]" />
               <span>Call: {COMPANY_INFO.phone}</span>
@@ -42,7 +42,7 @@ export function Footer() {
               href={COMPANY_INFO.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 rounded-full bg-[#0FA968] hover:bg-[#087A4A] text-white font-extrabold text-sm transition-all shadow-md shadow-[#0FA968]/25"
+              className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#0FA968] hover:bg-[#087A4A] text-white font-extrabold text-sm transition-all shadow-md shadow-[#0FA968]/25"
             >
               <MessageCircle className="w-4 h-4" />
               <span>WhatsApp Emergency</span>

@@ -31,7 +31,7 @@ export function TrustBar() {
 
   return (
     <div className="w-full relative z-20 -mt-6 sm:-mt-10 px-4 sm:px-6">
-      <div className="max-w-[1240px] mx-auto glass-pill-bar rounded-[24px] sm:rounded-full py-4 sm:py-5 px-6 sm:px-10">
+      <div className="max-w-[1240px] mx-auto glass-pill-bar rounded-[24px] sm:rounded-full py-4 sm:py-5 px-4 sm:px-8 xl:px-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 lg:divide-x lg:divide-slate-100">
           {items.map((item, idx) => {
             const Icon = item.icon;

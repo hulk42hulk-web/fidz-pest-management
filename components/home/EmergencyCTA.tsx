@@ -12,7 +12,7 @@ export function EmergencyCTA() {
       <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-[#0FA968]/25 rounded-full blur-[120px] -z-10 pointer-events-none" />
 
       <Container className="relative z-10">
-        <div className="max-w-5xl mx-auto bg-white/10 backdrop-blur-2xl border border-white/20 rounded-[32px] p-8 sm:p-12 shadow-[0_25px_60px_rgba(0,0,0,0.25)] flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div className="max-w-5xl mx-auto bg-white/10 backdrop-blur-2xl border border-white/20 rounded-[24px] sm:rounded-[32px] p-5 sm:p-10 lg:p-12 shadow-[0_25px_60px_rgba(0,0,0,0.25)] flex flex-col lg:flex-row items-center justify-between gap-8">
           {/* Left Text & Alert badge */}
           <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-5 max-w-2xl">
             <div className="w-16 h-16 rounded-2xl bg-white/15 border border-white/30 flex items-center justify-center shrink-0 shadow-inner">

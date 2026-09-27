@@ -70,7 +70,7 @@ export function Header() {
           isScrolled ? "py-2 bg-white/40 backdrop-blur-md" : "py-3 bg-transparent"
         )}
       >
-        <div className="max-w-[1360px] mx-auto glass-pill-bar rounded-full px-4 sm:px-5 xl:px-6 py-2 xl:py-2.5 flex items-center justify-between gap-3 xl:gap-5">
+        <div className="max-w-[1360px] mx-auto glass-pill-bar rounded-full px-3.5 sm:px-5 xl:px-6 py-2 xl:py-2.5 flex items-center justify-between gap-2 sm:gap-3 xl:gap-5">
           {/* Brand Logo with official transparent logo */}
           <Logo />
 
@@ -167,7 +167,7 @@ export function Header() {
               <Phone className="w-3.5 h-3.5 text-sky-600 shrink-0" />
             </a>
 
-            {/* WhatsApp Button */}
+            {/* WhatsApp Button for tablet/desktop */}
             <a
               href={COMPANY_INFO.whatsappUrl}
               target="_blank"
@@ -178,29 +178,30 @@ export function Header() {
               <span className="whitespace-nowrap">WhatsApp</span>
             </a>
 
-            {/* Book Inspection Button */}
+            {/* Book Inspection Button - hidden on mobile (<sm) to prevent overflow */}
             <Link
               href="/book-inspection"
-              className="flex items-center gap-1 px-3.5 xl:px-4 py-1.5 xl:py-2 text-xs font-bold text-white bg-[#09264A] hover:bg-[#12345B] rounded-full shadow-xs transition-all whitespace-nowrap shrink-0"
+              className="hidden sm:flex items-center gap-1 px-3.5 xl:px-4 py-1.5 xl:py-2 text-xs font-bold text-white bg-[#09264A] hover:bg-[#12345B] rounded-full shadow-xs transition-all whitespace-nowrap shrink-0"
             >
               <span className="whitespace-nowrap">Book Inspection</span>
               <ArrowRight className="w-3.5 h-3.5 shrink-0" />
             </Link>
 
-            {/* Mobile Menu Toggle Button */}
-            <div className="flex items-center gap-1.5 lg:hidden">
+            {/* Mobile Actions (< lg) */}
+            <div className="flex items-center gap-2 lg:hidden shrink-0">
               <a
                 href={COMPANY_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-full bg-[#0FA968] text-white sm:hidden shrink-0"
-                aria-label="WhatsApp"
+                className="flex sm:hidden items-center gap-1 px-3 py-1.5 rounded-full bg-[#0FA968] hover:bg-[#087A4A] text-white text-xs font-bold shadow-xs transition-all shrink-0"
+                aria-label="WhatsApp Us"
               >
-                <MessageCircle className="w-4 h-4 shrink-0" />
+                <MessageCircle className="w-3.5 h-3.5 shrink-0" />
+                <span className="text-[11px] font-bold">Chat</span>
               </a>
               <button
                 onClick={() => setIsMobileMenuOpen(true)}
-                className="p-2 rounded-full text-[#09264A] bg-slate-100/80 hover:bg-slate-200/80 focus:outline-none shrink-0"
+                className="p-1.5 sm:p-2 rounded-full text-[#09264A] bg-slate-100/90 hover:bg-slate-200/90 focus:outline-none shrink-0"
                 aria-label="Open Navigation Menu"
               >
                 <Menu className="w-5 h-5 shrink-0" />
