@@ -1,9 +1,10 @@
 import React from "react";
 import Link from "next/link";
-import { Phone, MessageCircle, Mail, MapPin, Clock, ShieldCheck, ArrowRight, Flame } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, ShieldCheck, ArrowRight, Flame } from "lucide-react";
 import { COMPANY_INFO } from "@/lib/constants";
 import { SERVICES } from "@/lib/services";
 import { Logo } from "@/components/ui/Logo";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { Container } from "@/components/ui/Container";
 
 export function Footer() {
@@ -42,9 +43,9 @@ export function Footer() {
               href={COMPANY_INFO.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#0FA968] hover:bg-[#087A4A] text-white font-extrabold text-sm transition-all shadow-md shadow-[#0FA968]/25"
+              className="flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-[#0FA968] hover:bg-[#087A4A] text-white font-extrabold text-sm transition-all shadow-md shadow-[#0FA968]/25"
             >
-              <MessageCircle className="w-4 h-4" />
+              <WhatsAppIcon className="w-4 h-4 fill-current shrink-0" />
               <span>WhatsApp Emergency</span>
             </a>
           </div>
@@ -158,7 +159,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="text-white font-bold hover:text-[#0FA968] flex items-center gap-1.5 transition-colors"
                 >
-                  <MessageCircle className="w-3.5 h-3.5 text-[#0FA968]" />
+                  <WhatsAppIcon className="w-3.5 h-3.5 text-[#0FA968] fill-current shrink-0" />
                   <span>WhatsApp Chat</span>
                 </a>
               </li>

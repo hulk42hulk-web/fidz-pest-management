@@ -1,6 +1,7 @@
 import React from "react";
-import { Phone, MessageCircle, Flame, Clock } from "lucide-react";
+import { Phone, Flame, Clock } from "lucide-react";
 import { COMPANY_INFO } from "@/lib/constants";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { Container } from "@/components/ui/Container";
 
 export function EmergencyCTA() {
@@ -47,9 +48,9 @@ export function EmergencyCTA() {
               href={COMPANY_INFO.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#0FA968] hover:bg-[#087A4A] text-white font-bold text-base shadow-[0_10px_25px_rgba(15,169,104,0.35)] transition-all cursor-pointer"
+              className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#0FA968] hover:bg-[#087A4A] text-white font-bold text-base shadow-[0_10px_25px_rgba(15,169,104,0.35)] transition-all cursor-pointer"
             >
-              <MessageCircle className="w-4 h-4" />
+              <WhatsAppIcon className="w-4 h-4 fill-current shrink-0" />
               <span>WhatsApp Emergency Team</span>
             </a>
           </div>

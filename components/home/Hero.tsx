@@ -1,7 +1,8 @@
 import React from "react";
 import Link from "next/link";
-import { Phone, MessageCircle, ShieldCheck, Shield, ArrowRight, Leaf, Zap, FileText } from "lucide-react";
+import { Phone, ShieldCheck, Shield, ArrowRight, Leaf, Zap, FileText } from "lucide-react";
 import { COMPANY_INFO } from "@/lib/constants";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 
 export function Hero() {
   return (
@@ -107,9 +108,9 @@ export function Hero() {
                 href={COMPANY_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full bg-white/85 hover:bg-white border border-slate-200/90 text-[#09264A] font-bold px-5 sm:px-6 py-3 sm:py-3.5 shadow-2xs transition-all flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer shrink-0"
+                className="rounded-full bg-white/85 hover:bg-white border border-slate-200/90 text-[#09264A] font-bold px-5 sm:px-6 py-3 sm:py-3.5 shadow-2xs transition-all flex items-center justify-center gap-2.5 text-sm sm:text-base cursor-pointer shrink-0"
               >
-                <MessageCircle className="w-4 h-4 text-[#0FA968] shrink-0" />
+                <WhatsAppIcon className="w-4 h-4 text-[#0FA968] shrink-0 fill-current" />
                 <span>WhatsApp Us</span>
               </a>
 

@@ -3,9 +3,10 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Phone, MessageCircle, Menu, ChevronDown, ShieldCheck, MapPin, ArrowRight } from "lucide-react";
+import { Phone, Menu, ChevronDown, ShieldCheck, MapPin, ArrowRight } from "lucide-react";
 import { COMPANY_INFO, NAV_LINKS } from "@/lib/constants";
 import { Logo } from "@/components/ui/Logo";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { MobileMenu } from "./MobileMenu";
 import { cn } from "@/lib/utils";
 
@@ -55,7 +56,7 @@ export function Header() {
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-slate-700 hover:text-[#0FA968] font-semibold transition-colors whitespace-nowrap"
             >
-              <MessageCircle className="w-3.5 h-3.5 text-[#0FA968] shrink-0" />
+              <WhatsAppIcon className="w-3.5 h-3.5 text-[#0FA968] shrink-0 fill-current" />
               <span>WhatsApp:</span>
               <span className="font-bold text-[#09264A]">{COMPANY_INFO.whatsappFormatted}</span>
             </a>
@@ -174,7 +175,7 @@ export function Header() {
               rel="noopener noreferrer"
               className="hidden sm:flex items-center gap-1.5 px-3.5 xl:px-4 py-1.5 xl:py-2 text-xs font-bold text-white bg-[#0FA968] hover:bg-[#087A4A] rounded-full shadow-xs transition-all whitespace-nowrap shrink-0"
             >
-              <MessageCircle className="w-3.5 h-3.5 shrink-0" />
+              <WhatsAppIcon className="w-3.5 h-3.5 shrink-0 fill-current" />
               <span className="whitespace-nowrap">WhatsApp</span>
             </a>
 
@@ -193,10 +194,10 @@ export function Header() {
                 href={COMPANY_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex sm:hidden items-center gap-1 px-3 py-1.5 rounded-full bg-[#0FA968] hover:bg-[#087A4A] text-white text-xs font-bold shadow-xs transition-all shrink-0"
+                className="flex sm:hidden items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#0FA968] hover:bg-[#087A4A] text-white text-xs font-bold shadow-xs transition-all shrink-0"
                 aria-label="WhatsApp Us"
               >
-                <MessageCircle className="w-3.5 h-3.5 shrink-0" />
+                <WhatsAppIcon className="w-3.5 h-3.5 shrink-0 fill-current" />
                 <span className="text-[11px] font-bold">Chat</span>
               </a>
               <button
