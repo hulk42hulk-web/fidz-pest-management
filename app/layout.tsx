@@ -43,7 +43,13 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Fidz Pest Management" }],
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
   openGraph: {
     title: "Fidz Pest Management | 24/7 Pest Control Singapore",
