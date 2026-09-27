@@ -24,7 +24,7 @@ export function EmergencyCTA() {
                 <Clock className="w-3.5 h-3.5 text-[#0FA968]" />
                 24/7 Islandwide Emergency Dispatch
               </div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-heading tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-4xl font-extrabold !text-white font-heading tracking-tight leading-tight">
                 Acute Pest Infestation Right Now?
               </h2>
               <p className="text-slate-200 text-sm sm:text-base leading-relaxed">
